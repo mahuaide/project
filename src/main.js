@@ -8,8 +8,8 @@ import store from './store/store'
 import axios from './http/http';
 import '../static/css/reset.css'
 import '../static/css/common.css'
-console.log(3333);
 Vue.prototype.$http = axios
+console.log(1234)
 
 Vue.config.productionTip = false
 
