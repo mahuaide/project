@@ -27,9 +27,6 @@
         <router-link to="/account">账户</router-link>
       </div>
       <div class="menu-itme">
-        <router-link to="/branch">分支</router-link>
-      </div>
-      <div class="menu-itme">
         <router-link to="/branch2">分支2</router-link>
       </div>
     </div>
