@@ -3,7 +3,6 @@ import store from '../store/store'
 import Router from 'vue-router'
 import account from '../components/account/account.vue'
 import friends from '../components/friends/friends.vue'
-import branch2 from '../components/branch2/branch2.vue'
 import home from '../components/home/home.vue'
 import notes from '../components/notes/notes.vue'
 import privateLetter from '../components/privateLetter/privateLetter.vue'
@@ -40,10 +39,6 @@ export default new Router({
     {
       path: '/friends',
       component: friends
-    },
-    {
-      path: '/branch2',
-      component: branch2
     },
     {
       path: '/notes',
