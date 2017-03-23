@@ -35,6 +35,7 @@
 
 <script>
   import header from './components/header/header.vue'
+  console.log(22222);
   export default {
     components: {
       'ai-header': header
