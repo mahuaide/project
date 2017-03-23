@@ -9,7 +9,6 @@ import axios from './http/http';
 import '../static/css/reset.css'
 import '../static/css/common.css'
 Vue.prototype.$http = axios
-console.log(17);
 
 Vue.config.productionTip = false
 

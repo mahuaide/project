@@ -29,6 +29,9 @@
       <div class="menu-itme">
         <router-link to="/branch">分支</router-link>
       </div>
+      <div class="menu-itme">
+        <router-link to="/branch2">分支</router-link>
+      </div>
     </div>
     <keep-alive>
       <router-view></router-view>
