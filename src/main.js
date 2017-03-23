@@ -12,8 +12,6 @@ Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
-console.log(111111);
-
 router.beforeEach((to, from, next) => {
   var { auth = true } = to.meta;
   var isLogin = Boolean(store.state.token)
