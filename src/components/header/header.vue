@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    header
+    <span class="iconfont icon-tubiaozhizuomoban"></span>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -18,5 +18,8 @@
     text-align center
     line-height 60px
     z-index 1000
+    .icon-tubiaozhizuomoban
+      font-size 22px
+
 
 </style>
