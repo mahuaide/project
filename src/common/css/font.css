@@ -14,4 +14,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-tubiaozhizuomoban:before { content: "\e601"; }
+.icon-data_center:before { content: "\e602"; }
+
+.icon-workflow:before { content: "\e603"; }
+
+.icon-baseline_manage:before { content: "\e604"; }
+
+.icon-configure_center:before { content: "\e606"; }
+
+.icon-data_center2:before { content: "\e607"; }
+
+.icon-data_center1:before { content: "\e608"; }
+
+.icon-version_manage:before { content: "\e60a"; }
+
+.icon-notify:before { content: "\e60d"; }
+
+.icon-arrow_down:before { content: "\e60e"; }
+
+.icon-nav_search:before { content: "\e60f"; }
+
+.icon-close:before { content: "\e610"; }
+
+.icon-add:before { content: "\e611"; }
+
