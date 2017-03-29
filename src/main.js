@@ -7,7 +7,7 @@ import router from './router'
 import store from './store/store'
 import axios from './http/http';
 import '../static/css/reset.css'
-import './common/css/common.css'
+import './common/css/common.styl'
 import './common/css/font.css'
 Vue.prototype.$http = axios
 

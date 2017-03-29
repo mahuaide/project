@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import store from '../store/store'
 import Router from 'vue-router'
-import account from '../components/account/account.vue'
-import friends from '../components/friends/friends.vue'
+import version from '../components/version/version.vue'
 import home from '../components/home/home.vue'
-import notes from '../components/notes/notes.vue'
-import privateLetter from '../components/privateLetter/privateLetter.vue'
+import configure from '../components/configure/configure.vue'
 import project from '../components/project/project.vue'
-import task from '../components/task/task.vue'
-import team from '../components/team/team.vue'
+import data from '../components/data/data.vue'
+import baseline from '../components/baseline/baseline.vue'
 import view from '../components/view/view.vue'
 import projectAll from '../components/project/projectSub/projectAll.vue'
 import created from '../components/project/projectSub/created.vue'
@@ -40,35 +38,21 @@ export default new Router({
       path: '/home',
       component: home,
       children: [
-        {path: 'account', component: account},
+        {path: 'version', component: version},
       ]
     },
     {
       path: '/home',
       component: home,
       children: [
-        {path: 'friends', component: friends},
+        {path: 'configure', component: configure},
       ]
     },
     {
       path: '/home',
       component: home,
       children: [
-        {path: 'notes', component: notes},
-      ]
-    },
-    {
-      path: '/home',
-      component: home,
-      children: [
-        {path: 'privateLetter', component: privateLetter},
-      ]
-    },
-    {
-      path: '/home',
-      component: home,
-      children: [
-        {path: 'team', component: team},
+        {path: 'baseline', component: baseline},
       ]
     },
     {
@@ -89,7 +73,7 @@ export default new Router({
       path: '/home',
       component: home,
       children: [
-        {path: 'task', component: task},
+        {path: 'data', component: data},
       ]
     },
     {
