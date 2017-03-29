@@ -2,16 +2,16 @@
   <div class="wrapper">
     <div class="sub-menu">
       <div class="sub-menu-itme">
-        <router-link to="/project/all">所有工程</router-link>
+        <router-link to="/home/project/all">所有工程</router-link>
       </div>
       <div class="sub-menu-itme">
-        <router-link to="/project/created">我创建的</router-link>
+        <router-link to="/home/project/created">我创建的</router-link>
       </div>
       <div class="sub-menu-itme">
-        <router-link to="/project/joined">我参与的</router-link>
+        <router-link to="/home/project/joined">我参与的</router-link>
       </div>
       <div class="sub-menu-itme">
-        <router-link to="/project/archive">归档项目</router-link>
+        <router-link to="/home/project/archive">归档项目</router-link>
       </div>
     </div>
     <keep-alive>
