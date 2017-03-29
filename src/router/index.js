@@ -9,6 +9,7 @@ import privateLetter from '../components/privateLetter/privateLetter.vue'
 import project from '../components/project/project.vue'
 import task from '../components/task/task.vue'
 import team from '../components/team/team.vue'
+import view from '../components/view/view.vue'
 import projectAll from '../components/project/projectSub/projectAll.vue'
 import created from '../components/project/projectSub/created.vue'
 import joined from '../components/project/projectSub/joined.vue'
@@ -30,45 +31,70 @@ export default new Router({
     },
     {
       path: '/home',
-      component: home
-    },
-    {
-      path: '/account',
-      component: account
-    },
-    {
-      path: '/friends',
-      component: friends
-    },
-    {
-      path: '/notes',
-      component: notes
-    },
-    {
-      path: '/privateLetter',
-      component: privateLetter
-    },
-    {
-      path: '/project',
-      component: project,
+      component: home,
       children: [
-        {path: 'all', component: projectAll},
-        {path: 'created', component: created},
-        {path: 'joined', component: joined},
-        {path: 'archive', component: archive}
+        {path: 'view', component: view},
       ]
     },
     {
-      path: '/task',
-      component: task
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'account', component: account},
+      ]
     },
     {
-      path: '/team',
-      component: team
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'friends', component: friends},
+      ]
+    },
+    {
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'notes', component: notes},
+      ]
+    },
+    {
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'privateLetter', component: privateLetter},
+      ]
+    },
+    {
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'team', component: team},
+      ]
+    },
+    {
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'project', component: project,
+          children:[
+            {path: 'all', component: projectAll},
+            {path: 'created', component: created},
+            {path: 'joined', component: joined},
+            {path: 'archive', component: archive}
+          ]
+        },
+      ]
+    },
+    {
+      path: '/home',
+      component: home,
+      children: [
+        {path: 'task', component: task},
+      ]
     },
     {
       path: "/",
-      redirect: "/home"
+      redirect: "/home/view"
     }
   ]
 })
