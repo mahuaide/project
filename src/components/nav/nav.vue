@@ -1,28 +1,22 @@
 <template>
   <div class="left-menu">
     <div class="menu-itme">
-      <router-link to="/home/view">HOME</router-link>
+      <router-link to="/home/view"><img src="../../common/img/home.png"></router-link>
     </div>
     <div class="menu-itme">
-      <router-link to="/home/project">项目</router-link>
+      <router-link to="/home/project" class="iconfont icon-workflow">工作流</router-link>
     </div>
     <div class="menu-itme">
-      <router-link to="/home/task">任务</router-link>
+      <router-link to="/home/data" class="iconfont icon-data_center2">数据中心</router-link>
     </div>
     <div class="menu-itme">
-      <router-link to="/home/team">团队</router-link>
+      <router-link to="/home/baseline" class="iconfont icon-baseline_manage">基线管理</router-link>
     </div>
     <div class="menu-itme">
-      <router-link to="/home/friends">好友</router-link>
+      <router-link to="/home/version" class="iconfont icon-version_manage">版本管理</router-link>
     </div>
     <div class="menu-itme">
-      <router-link to="/home/notes">通知</router-link>
-    </div>
-    <div class="menu-itme">
-      <router-link to="/home/privateLetter">私信</router-link>
-    </div>
-    <div class="menu-itme">
-      <router-link to="/home/account">账户</router-link>
+      <router-link to="/home/configure" class="iconfont icon-configure_center">配置中心</router-link>
     </div>
   </div>
 </template>
@@ -40,20 +34,28 @@
     height 100%
     overflow-y auto
     text-align center
-    font-size 14px
-    border-right 1px solid #ddd
     z-index 999
+    background-color #3d3d3d
     .menu-itme
       width 100%
-      height auto
+      height 54px
       >a
-        border-bottom  1px solid #ddd
-        display inline-block
+        display block
         width 100%
         height 100%
-        padding 10px 0
-  .active
-    color:#000
-    font-weight 600
-    background-color #ddd
+        font-size 12px
+        color: #eeeeee
+        background-color #3d3d3d
+        transition: background-color  .2s ease,color .2s ease;
+      .icon-workflow:before ,.icon-data_center2:before , .icon-baseline_manage:before , .icon-version_manage:before ,
+      .icon-configure_center:before
+        display block
+        padding 8px 0 4px
+        font-size 20px
+      :hover
+        background-color #303030
+        color: #fff
+      .active
+        color:#fff
+        background-color #303030
 </style>
