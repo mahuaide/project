@@ -17,7 +17,7 @@ axios.interceptors.request.use(
   config => {
     if (store.state.token) {
       axios.defaults.headers.common['Authorization'] = 'QMC'+store.state.token;
-      // console.log(axios.defaults.headers.common)
+      console.log(axios.defaults.headers.common)
     }
     return config;
   },
@@ -37,7 +37,7 @@ axios.interceptors.response.use(
           // 401 清除token信息并跳转到登录页面
           store.commit(types.LOGOUT);
           router.replace({
-            path: 'login',
+            path: '/login',
             query: {redirect: router.currentRoute.fullPath}
           })
       }

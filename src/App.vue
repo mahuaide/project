@@ -11,7 +11,7 @@
   export default {
     mounted(){
       router.beforeEach((to, from, next) => {
-        if (from.path === '/login') {
+        if (from.path === '/login' && this.$store.state.token) {
           this.$message({
             message: '欢迎回来！',
             type: 'success',
