@@ -35,7 +35,7 @@
     overflow-y auto
     text-align center
     z-index 999
-    background-color #3d3d3d
+    background-color #fff
     .menu-itme
       width 100%
       height 54px
@@ -44,9 +44,9 @@
         width 100%
         height 100%
         font-size 12px
-        color: #eeeeee
-        background-color #3d3d3d
-        transition: background-color  .2s ease,color .2s ease;
+        color: #3d3d3d
+        background-color #fff
+        transition: background-color  .4s ease,color .4s ease;
       .icon-workflow:before ,.icon-data_center2:before , .icon-baseline_manage:before , .icon-version_manage:before ,
       .icon-configure_center:before
         display block

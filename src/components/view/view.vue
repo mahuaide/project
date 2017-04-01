@@ -22,7 +22,9 @@
           </div>
         </div>
       </div>
-      <div class="state"></div>
+      <div class="state">
+        <div class="dynamic">动态</div>
+      </div>
     </div>
     <div class="vacancy"></div>
   </div>
@@ -122,6 +124,14 @@
         border 1px solid #e8e8e8
         margin-top 20px
         background-color #fff
+        .dynamic
+          width 95%
+          height 40px
+          margin-left 20px
+          border-bottom  1px solid #e8e8e8
+          line-height 40px
+          font-size 16px
+          color: #303030
     .vacancy
       float left
       width 38%

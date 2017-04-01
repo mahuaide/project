@@ -26,7 +26,7 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  headerBackGroundColor = #fdfcff
+  headerBackGroundColor = #303030
   fontSize = 14px
   fontFamily = "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft YaHei", "微软雅黑", sans-serif;
   .header
@@ -69,8 +69,9 @@
       text-align center
       line-height 60px
       z-index 999
+      color #c8c8c8
       .project-name
-        color #1a1a1a
+        color #c8c8c8
         font-size 14px
         font-weight bold
         &:hover
@@ -97,7 +98,10 @@
         width 60px
         line-height 60px
         text-align right
+        color #c8c8c8
+        transition color .4s
         &:hover
+          color #1a1a1a
           background-color #F2F2F2
           cursor pointer
         .icon-arrow_down
@@ -117,9 +121,10 @@
         width 60px
         height 100%
         font-size 15px
-        color #1a1a1a
-        transition background-color .4s
+        color #c8c8c8
+        transition background-color .4s , color .4s
         &:hover
+          color #1a1a1a
           background-color #F2F2F2
           cursor pointer
 </style>

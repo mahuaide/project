@@ -7,3 +7,17 @@
 [0329/143203.927:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
 [0329/145721.644:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
 [0329/150744.541:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0330/173543.976:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0331/110552.868:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0331/165406.436:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: 管道正在被关闭。 (0xE8)
+[0331/171628.219:ERROR:process_reader_win.cc(233)] ReadMemory at 0x4b90048 of 32768 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0331/171628.221:WARNING:pe_image_annotations_reader.cc(65)] could not read simple annotations from C:\Program Files (x86)\Google\Chrome\Application\57.0.2987.98\chrome_elf.dll
+[0331/171628.246:ERROR:process_reader_win.cc(233)] ReadMemory at 0x6f6000 of 40960 bytes failed: 仅完成部分的 ReadProcessMemory 或 WriteProcessMemory 请求。 (0x12B)
+[0331/171628.247:ERROR:crash_report_exception_handler.cc(111)] WriteEverything failed
+[0331/171628.249:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: 已尝试访问正在退出的过程。  (0xc000010a)
+[0331/171646.563:ERROR:process_reader_win.cc(142)] SuspendThread: 拒绝访问。 (0x5)
+[0331/171646.564:ERROR:exception_snapshot_win.cc(87)] thread ID 5192 not found in process
+[0331/171646.564:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
+[0331/171646.564:ERROR:process_reader_win.cc(142)] SuspendThread: 拒绝访问。 (0x5)
+[0331/171646.564:ERROR:exception_snapshot_win.cc(87)] thread ID 5252 not found in process
+[0331/171646.564:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed
