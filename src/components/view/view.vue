@@ -24,13 +24,16 @@
       </div>
       <div class="state">
         <div class="dynamic">动态</div>
+        <ai-timer></ai-timer>
       </div>
     </div>
     <div class="vacancy"></div>
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import timerShaft from '../view/timerShaft/timerShaft.vue'
   export default{
+    components:{'ai-timer':timerShaft}
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -47,7 +50,7 @@
           width 95%
           height 40px
           margin-left 20px
-          border-bottom  1px solid #e8e8e8
+          border-bottom 1px solid #e8e8e8
           .left
             float: left
             font-size 16px
@@ -128,7 +131,7 @@
           width 95%
           height 40px
           margin-left 20px
-          border-bottom  1px solid #e8e8e8
+          border-bottom 1px solid #e8e8e8
           line-height 40px
           font-size 16px
           color: #303030

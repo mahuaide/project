@@ -43,6 +43,23 @@ export const nav = [
       "message": "success",
       "respCode": "0000"
     }
+  },
+  {
+    path:Path.getWorkflowState,
+    data:{
+      "code":"0",
+      "beans":[
+        {
+          "userId":"11012",
+          "userName":"哈士奇",
+          "userUri":"",
+          "executeTime":1489053896000,
+          "State":"1",
+          "workflowDemo":"TANGYAOYAO/DEMO",
+          "workflow":"TANGYAOYAO"
+        }
+      ]
+    }
   }
 ]
 
