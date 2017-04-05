@@ -8,7 +8,7 @@ import router from '../router/index.js'
 
 // axios 公共配置
 axios.defaults.timeout = 5000;
-// axios.defaults.baseURL = 'http://10.19.18.45:8080/cmp';
+axios.defaults.baseURL = 'http://10.19.18.45:8080/cmp';
 axios.defaults.withCredentials=true;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -16,8 +16,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.interceptors.request.use(
   config => {
     if (store.state.token) {
-      axios.defaults.headers.common['Authorization'] = 'QMC'+store.state.token;
-      console.log(axios.defaults.headers.common)
+      axios.defaults.headers.common['Authorization'] = 'Auth'+store.state.token;
+      // console.log(axios.defaults.headers.common)
     }
     return config;
   },

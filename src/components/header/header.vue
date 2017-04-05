@@ -13,7 +13,7 @@
     <div class="header-right">
       <span class="iconfont icon-add"></span>
       <span class="iconfont icon-notify"></span>
-      <!--<el-dropdown>-->
+      <!--<el-dropdown @command="clickConfig" >-->
       <!--<span class="el-dropdown-link">-->
       <!--<div class="header-user">-->
       <!--<img src="./logo.png" alt="user" width="38px" height="38px">-->
@@ -21,7 +21,7 @@
       <!--</div>-->
       <!--</span>-->
       <!--<el-dropdown-menu slot="dropdown">-->
-      <!--<el-dropdown-item>退出</el-dropdown-item>-->
+      <!--<el-dropdown-item  command="out">退出</el-dropdown-item>-->
       <!--</el-dropdown-menu>-->
       <!--</el-dropdown>-->
       <div class="header-user" @mouseover="showConfig" @mouseout="hideConfig">
@@ -35,7 +35,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-  import {logout,getLoginUser} from '../../http/api'
+  import {logout, getLoginUser} from '../../http/api'
   import * as types from '../../store/type'
   export default{
     data(){
@@ -45,8 +45,8 @@
     },
     methods: {
       getUser(){
-        getLoginUser().then(res=>{
-            console.log(res.data);
+        getLoginUser().then(res => {
+          console.log(res.data);
         })
       },
       showConfig(){
@@ -104,7 +104,7 @@
       transition width .4s
       background url('./nav_search_focus.png') no-repeat right center
       background-size 14px 14px
-      z-index 10001
+      z-index 1000
       color: #fff
       &:focus
         width: 200px
@@ -149,8 +149,7 @@
         .drop-down-list
           position absolute
           right 0
-          bottom -36px
-          border 1px solid #ddd
+          bottom -35px
           min-width 90px
           background-color #fff;
           color #000

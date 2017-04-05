@@ -1,8 +1,9 @@
 import Path from '../http/path'
-
+import http from '../http/http'
+const baseUrl = http.defaults.baseURL;
 export const nav = [
   {
-    path: Path.login,
+    path: baseUrl+Path.login,
     data: {
       "data": {
         "userPicture": null,
@@ -24,7 +25,7 @@ export const nav = [
 
   },
   {
-    path: Path.getLoginUser,
+    path: baseUrl+Path.getLoginUser,
     data: {
       "data": {
         "userPicture": null,
@@ -45,7 +46,7 @@ export const nav = [
     }
   },
   {
-    path: Path.logout,
+    path: baseUrl+Path.logout,
     data: {
       "data": {
         "userPicture": null,
