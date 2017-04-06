@@ -27,11 +27,16 @@
         <ai-timer></ai-timer>
       </div>
     </div>
-    <div class="vacancy"></div>
+    <div class="vacancy">
+      <div id="editor-container" class="container">
+        <div id="editor-trigger"><p>请输入内容</p></div>
+      </div>
+    </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
   import timerShaft from '../view/timerShaft/timerShaft.vue'
+
   export default{
     components:{'ai-timer':timerShaft}
   }

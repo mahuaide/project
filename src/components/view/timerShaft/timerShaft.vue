@@ -1,43 +1,32 @@
 <template>
   <div class="timerShaft">
-    <ul>
-      <span>2017-03-20</span>
+    <ul v-for="item in workDate">
+      <span>{{item.creatTimeA}}</span>
       <li>
         <span></span>
         <span></span>
-        <span>16:16</span>
+        <span>{{item.creatTimeB}}</span>
         <span>
-      <li></li>
-      <li>
-        <span>Admin</span>
-        <span>执行&nbsp;<span>Tangyayao/Demo</span>&nbsp;的&nbsp;<span>Tangyayao/Demo</span>&nbsp;工作流</span>
-      </li>
-      <li>正在进行</li>
-      </span>
-      </li>
-      <li>
-        <span></span>
-        <span></span>
-        <span>16:16</span>
-        <span>
-      <li></li>
-      <li>
-        <span>Admin</span>
-        <span>执行&nbsp;<span>Tangyayao/Demo</span>&nbsp;的&nbsp;<span>Tangyayao/Demo</span>&nbsp;工作流</span>
-      </li>
-      <li>正在进行</li>
-      </span>
+          <li></li>
+          <li>
+            <span>{{item.userName}}</span>
+            <span>执行&nbsp;<span>{{item.workflowDemo}}</span>&nbsp;的&nbsp;<span>{{item.workflow}}</span>&nbsp;工作流</span>
+          </li>
+          <li>{{item.State}}</li>
+        </span>
       </li>
     </ul>
+
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import {getWorkflowState} from '../../../http/api'
+  import $ from 'jquery'
   export default{
     data () {
-      return{
-          workDate:[]
+      return {
+        workDate:[]
       }
     },
     created(){
@@ -47,12 +36,22 @@
       workflow() {
         const _this = this;
         getWorkflowState().then(function (res) {
-          console.log(res.data);
-          console.log(_this.$time.dateToStr(new Date(res.data.beans[0].executeTime) , 'yyyy-M-dd'));
-          _this.workDate = res.data;
+          const data = res.data.beans;
+          const d = data;
+          $(function () {
+            $(data).each(function () {
+                this.creatTimeA = _this.$time.dateToStr(new Date(this.executeTime) , 'yyyy-M-dd');
+                this.creatTimeB = _this.$time.dateToStr(new Date(this.executeTime) , 'hh:mm');
+
+            })
+            _this.workDate = data;
+
+          })
+          console.log(_this.workDate);
         })
       }
     }
+
   };
 </script>
 
@@ -62,15 +61,12 @@
     margin-left 20px
     ul
       font-size 0px
-      margin-top 14px
       > span
         display block
         font-size 14px
         color #303030
         margin-bottom 19px
       li:last-child
-        > span:nth-child(2)
-          height 0
       > li
         position relative
         height 74px
