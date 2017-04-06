@@ -18,6 +18,6 @@ npm run build
 ## 截图
 
 ``` bash
-https://github.com/mahuaide/project/blob/master/static/img/index.png
+![](https://github.com/mahuaide/project/blob/master/static/img/index.png)
 https://github.com/mahuaide/project/blob/master/static/img/index.png
 
