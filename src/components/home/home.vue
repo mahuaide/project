@@ -18,7 +18,6 @@
       },
       methods:{
         fashe(){
-            console.log(1);
           var _this =this;
           getLoginUser().then(function(res){
             _this.username = res.data.data.username;
