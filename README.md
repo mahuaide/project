@@ -14,6 +14,7 @@ npm run dev
 
 # 线上发布
 npm run build
-![](https://github.com/mahuaide/project/blob/master/static/img/login.png)
-![](https://github.com/mahuaide/project/blob/master/static/img/index.png)
+
+![Alt text](https://github.com/mahuaide/project/blob/master/static/img/login.png)
+![Alt text](https://github.com/mahuaide/project/blob/master/static/img/index.png)
 
