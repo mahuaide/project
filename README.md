@@ -1,21 +1,16 @@
-# project
+# 技术栈
 
-> QMC-Project
+> vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + mock.js + element-UI +jQuery（第三方插件）
 
-## Build Setup
+## 项目运行
 
 ``` bash
-# install dependencies
+# 安装依赖
+cd project
 npm install
 
-# serve with hot reload at localhost:8080
+# 启动项目，默认端口8081
 npm run dev
 
-# build for production with minification
+# 线上发布
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
