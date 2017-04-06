@@ -14,3 +14,7 @@ npm run dev
 
 # 线上发布
 npm run build
+
+![image](https://github.com/mahuaide/project/static/img/index.png)
+![image](https://github.com/mahuaide/project/static/img/index.png)
+
