@@ -1,0 +1,42 @@
+.progress-out {
+    position: relative;
+    border: 1px solid #13C2B6;
+    background-color: #fff;
+}
+
+.progress-in {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    border: none;
+    background-color: #13C2B6;
+    background-image: linear-gradient(top, #15E5D8 0%, #12EADE 40%, #1ABFB4 100%);
+    background-image: -webkit-linear-gradient(top, #15E5D8 0%, #12EADE 40%, #1ABFB4 100%);
+    background-image: -moz-linear-gradient(top, #15E5D8 0%, #12EADE 40%, #1ABFB4 100%);
+    background-image: -o-linear-gradient(top, #15E5D8 0%, #12EADE 40%, #1ABFB4 100%);
+    background-image: -ms-linear-gradient(top, #15E5D8 0%, #12EADE 40%, #1ABFB4 100%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+}
+.direction-left{
+    left:0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.direction-right{
+    right:0;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.percent-show {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #000;
+    text-align: center;
+    z-index: 2;
+}
