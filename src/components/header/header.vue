@@ -6,23 +6,68 @@
       </span>
     </div>
     <input type="text" class="search" placeholder="Search..." v-show="this.$store.state.token">
-    <div class="header-middle">
+    <div class="header-middle" @click="getUser">
       <span class="project-name">运营商项目</span>
       <span class="iconfont icon-arrow_down"></span>
     </div>
     <div class="header-right">
       <span class="iconfont icon-add"></span>
       <span class="iconfont icon-notify"></span>
-      <div class="header-user">
+      <!--<el-dropdown @command="clickConfig" >-->
+      <!--<span class="el-dropdown-link">-->
+      <!--<div class="header-user">-->
+      <!--<img src="./logo.png" alt="user" width="38px" height="38px">-->
+      <!--<span class="iconfont icon-arrow_down"></span>-->
+      <!--</div>-->
+      <!--</span>-->
+      <!--<el-dropdown-menu slot="dropdown">-->
+      <!--<el-dropdown-item  command="out">退出</el-dropdown-item>-->
+      <!--</el-dropdown-menu>-->
+      <!--</el-dropdown>-->
+      <div class="header-user" @mouseover="showConfig" @mouseout="hideConfig">
         <img src="./logo.png" alt="user" width="38px" height="38px">
         <span class="iconfont icon-arrow_down"></span>
+        <ul class="drop-down-list" v-show="config_show">
+          <li @click="clickConfig('out')">退出</li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import {logout, getLoginUser} from '../../http/api'
+  import * as types from '../../store/type'
   export default{
-    props: {}
+    data(){
+      return {
+        config_show: false
+      }
+    },
+    methods: {
+      getUser(){
+        getLoginUser().then(res => {
+          console.log(res.data);
+        })
+      },
+      showConfig(){
+        this.config_show = true;
+      },
+      hideConfig(){
+        this.config_show = false;
+      },
+      clickConfig(option){
+        if (option == 'out') {
+          let _this = this;
+          logout().then(function (res) {
+            _this.$store.commit('logout');
+            _this.config_show = false;
+            _this.$router.replace({
+              path: '/login'
+            })
+          })
+        }
+      }
+    }
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -39,7 +84,7 @@
       display table
       float left
       height 100%
-      margin-left 22  px
+      margin-left 22px
       span
         display table-cell
         vertical-align middle
@@ -49,7 +94,7 @@
       margin-left 22px
       width 120px
       border none
-      border-bottom 1px solid #CCCCCC
+      border-bottom 1px solid #8a8a8a
       background-color headerBackGroundColor
       font-size fontSize
       outline: 0
@@ -57,13 +102,14 @@
       padding: 2px 20px 2px 2px
       vertical-align middle
       transition width .4s
-      background url('./nav_search.png') no-repeat right center
+      background url('./nav_search_focus.png') no-repeat right center
       background-size 14px 14px
-      z-index 10001
+      z-index 1000
+      color: #fff
       &:focus
         width: 200px
-        background-image url('./nav_search_focus.png')
-        border-bottom-color #8a8a8a
+        background-image url('./nav_search.png')
+        border-bottom-color #CCCCCC
     .header-middle
       position relative
       text-align center
@@ -100,6 +146,23 @@
         text-align right
         color #c8c8c8
         transition color .4s
+        .drop-down-list
+          position absolute
+          right 0
+          bottom -35px
+          min-width 90px
+          background-color #fff;
+          color #000
+          text-align left
+          font-size 14px
+          box-shadow 2px 2px 5px #ddd
+          > li
+            border-bottom 1px solid #ddd
+            padding 0 10px
+            height 34x;
+            line-height 34px
+            &:hover
+              background-color #ddd
         &:hover
           color #1a1a1a
           background-color #F2F2F2
@@ -122,7 +185,7 @@
         height 100%
         font-size 15px
         color #c8c8c8
-        transition background-color .4s , color .4s
+        transition background-color .4s, color .4s
         &:hover
           color #1a1a1a
           background-color #F2F2F2

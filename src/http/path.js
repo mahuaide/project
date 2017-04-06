@@ -1,6 +1,5 @@
 export default {
   login: '/user/login.action',
-  getLoginUser: '/user/getLoginUser.action',
-  getWorkflowState:'/workflow/dynamicList.do'
+  getLoginUser: '/user/getLoginUser.action'
 }
 
