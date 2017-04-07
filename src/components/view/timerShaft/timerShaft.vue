@@ -1,18 +1,18 @@
 <template>
   <div class="timerShaft">
     <ul v-for="item in workDate">
-      <span>{{item.creatTimeA}}</span>
+      <span v-show="item.creatTimeA">{{item.creatTimeA}}</span>
       <li>
         <span></span>
-        <span></span>
+        <span v-show="item.creatTimeA"></span>
         <span>{{item.creatTimeB}}</span>
         <span>
-          <li></li>
+          <li><img :src="item.userUri"></li>
           <li>
             <span>{{item.userName}}</span>
             <span>执行&nbsp;<span>{{item.workflowDemo}}</span>&nbsp;的&nbsp;<span>{{item.workflow}}</span>&nbsp;工作流</span>
           </li>
-          <li>{{item.State}}</li>
+          <li :class="item.classState">{{item.State}}</li>
         </span>
       </li>
     </ul>
@@ -22,7 +22,6 @@
 
 <script type="text/ecmascript-6">
   import {getWorkflowState} from '../../../http/api'
-  import $ from 'jquery'
   export default{
     data () {
       return {
@@ -36,18 +35,32 @@
       workflow() {
         const _this = this;
         getWorkflowState().then(function (res) {
-          const data = res.data.beans;
-          const d = data;
-          $(function () {
-            $(data).each(function () {
-                this.creatTimeA = _this.$time.dateToStr(new Date(this.executeTime) , 'yyyy-M-dd');
-                this.creatTimeB = _this.$time.dateToStr(new Date(this.executeTime) , 'hh:mm');
-
-            })
-            _this.workDate = data;
-
+          const dataA = res.data.beans;
+          dataA.forEach(function (o , p ,q) {
+            dataA[p].creatTimeA = _this.$time.dateToStr(new Date(dataA[p].executeTime) , 'yyyy-M-dd');
+            dataA[p].creatTimeB = _this.$time.dateToStr(new Date(dataA[p].executeTime) , 'hh:mm');
+            if(dataA[p].State == 1) {
+              dataA[p].State = '未完成';
+              dataA[p].classState = 'finish';
+            }else if(dataA[p].State == 2){
+              dataA[p].State = '正在进行';
+              dataA[p].classState = 'nofinish';
+            }else if(dataA[p].State == 3){
+              dataA[p].State ='完成';
+              dataA[p].classState = 'underway';
+            }
           })
-          console.log(_this.workDate);
+          _this.workDate = dataA;
+          var dataB = _this.workDate[0].creatTimeA
+          var dataC = _this.workDate[0].creatTimeA
+          dataA.forEach(function (o , p , q) {
+            if(dataA[p].creatTimeA == dataB){
+              delete dataA[p].creatTimeA
+            }else if(dataA[p].creatTimeA !== dataB){
+              dataB = dataA[p].creatTimeA;
+            }
+          })
+          _this.workDate[0].creatTimeA = dataC;
         })
       }
     }
@@ -66,6 +79,7 @@
         font-size 14px
         color #303030
         margin-bottom 19px
+        margin-top 19px
       li:last-child
       > li
         position relative
@@ -101,7 +115,9 @@
             position absolute
             top 4px
             left 5px
-            background-color: #000
+            background-color: skyblue
+            img
+              border-radius 50%
           li:nth-child(2)
             position absolute
             width 80%
@@ -128,4 +144,10 @@
             right 14px
             bottom 7px
             padding-left 30px
+          .finish
+            background url("finish.gif") no-repeat
+          .nofinish
+            background url("nofinish.gif") no-repeat
+          .underway
+            background url("underway.gif") no-repeat
 </style>
