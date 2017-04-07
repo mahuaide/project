@@ -14,6 +14,11 @@ npm run dev
 
 # 线上发布
 npm run build
-
-<img src="https://github.com/mahuaide/project/blob/master/static/img/index.png" width="365" height="619"/>
+## 运行截图
+![首页](https://github.com/mahuaide/project/static/img/index.png)
+![详情](https://github.com/javaSwing/NeteaseCloudWebApp/raw/master/screenshots/2.png)
+![动图](https://github.com/javaSwing/NeteaseCloudWebApp/raw/master/screenshots/3.gif)
+![动图](https://github.com/javaSwing/NeteaseCloudWebApp/raw/master/screenshots/4.gif)
+![image](https://github.com/mahuaide/project/blob/mahuaideBranch/static/img/index.png?raw=true)
+![image](https://github.com/mahuaide/master/project/static/img/index.png)
 
