@@ -15,5 +15,5 @@ npm run dev
 # 线上发布
 npm run build
 ## 运行截图
-![首页](https://github.com/mahuaide/project/blob/master/Screenshot/index.png)
+![首页](https://github.com/mahuaide/project/raw/master/Screenshot/index.png)
 
