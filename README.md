@@ -56,7 +56,7 @@ npm run build
 │  ├─mock			--mock数据
 │  ├─router			--路由
 │  └─store			--前端状态管理
-├─static			--静态的css，js，img
+├─static			--静态的css，img
 │  ├─css
 │  └─img
 │      └─login
