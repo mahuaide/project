@@ -16,4 +16,5 @@ npm run dev
 npm run build
 ## 运行截图
 ![首页](https://github.com/mahuaide/project/raw/master/Screenshot/index.png)
+![首页](https://raw.github.com/mahuaide/project/master/Screenshot/index.png)
 
