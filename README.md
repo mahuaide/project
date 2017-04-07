@@ -14,7 +14,7 @@
 ![首页](https://github.com/mahuaide/project/raw/master/screenshots/index.png)
 
 
-## 安装运行（Build Setup）
+## 安装运行
 
 ``` bash
 # install dependencies
