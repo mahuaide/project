@@ -24,7 +24,7 @@
       </div>
       <div class="state">
         <div class="dynamic">动态</div>
-        <ai-timer></ai-timer>
+        <ai-timer :shaftData="shaftData"></ai-timer>
       </div>
     </div>
     <div class="vacancy">
@@ -35,9 +35,24 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import {getWorkflowState} from '../../http/api'
   import timerShaft from '../view/timerShaft/timerShaft.vue'
 
   export default{
+    data() {
+      return {
+         shaftData:{
+         }
+      }
+    },
+    created () {
+      const _this = this;
+
+      getWorkflowState().then(function (res) {
+          console.log(res.data.beans);
+          _this.shaftData = res.data.beans
+        })
+    },
     components:{'ai-timer':timerShaft}
   }
 </script>
