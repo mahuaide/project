@@ -39,7 +39,7 @@ npm run build
 │  │  ├─img
 │  │  ├─js
 │  │  └─stylus
-│  ├─components		      --组件
+│  ├─components		        --组件
 │  │  ├─baseline
 │  │  ├─configure
 │  │  ├─data
