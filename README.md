@@ -15,7 +15,7 @@ npm run dev
 # 线上发布
 npm run build
 
-## 目录结构
+# 目录结构
 
 ``` bash
 ├─src
