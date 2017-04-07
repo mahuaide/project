@@ -5,7 +5,10 @@
 ## 项目运行
 
 ``` bash
+
 ### 安装依赖
+
+``` bash
 cd project
 npm install
 
