@@ -15,3 +15,37 @@ npm run dev
 # 线上发布
 npm run build
 
+## 目录结构
+├─src
+│  ├─common			--公共样式
+│  │  ├─css
+│  │  │  ├─jcrop
+│  │  │  └─progress
+│  │  ├─font
+│  │  ├─img
+│  │  ├─js
+│  │  └─stylus
+│  ├─components
+│  │  ├─baseline
+│  │  ├─configure
+│  │  ├─data
+│  │  ├─header
+│  │  ├─home
+│  │  ├─login
+│  │  ├─nav
+│  │  ├─project
+│  │  │  └─projectSub
+│  │  ├─version
+│  │  └─view
+│  │      └─timerShaft
+│  ├─http
+│  ├─mock
+│  ├─router
+│  └─store
+├─static
+│  ├─css
+│  └─img
+│      └─login
+└─theme
+    └─fonts
+
