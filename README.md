@@ -15,6 +15,12 @@ npm run dev
 # 线上发布
 npm run build
 
+
+# 技术栈
+
+> vue2 + vuex + vue-router + webpack + ES6/7 + axios + stylus + mock.js + element-UI +jQuery（第三方插件）
+
+
 # 目录结构
 
 ``` bash
