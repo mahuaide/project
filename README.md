@@ -16,6 +16,8 @@ npm run dev
 npm run build
 
 ## 目录结构
+
+``` bash
 ├─src
 │  ├─common			--公共样式
 │  │  ├─css
