@@ -39,7 +39,7 @@ npm run build
 │  │  ├─img
 │  │  ├─js
 │  │  └─stylus
-│  ├─components		    --组件
+│  ├─components		      --组件
 │  │  ├─baseline
 │  │  ├─configure
 │  │  ├─data
@@ -60,5 +60,5 @@ npm run build
 │  ├─css
 │  └─img
 │      └─login
-└─theme			      --Element-UI自定义样式
+└─theme			        --Element-UI自定义样式
     └─fonts
