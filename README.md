@@ -10,7 +10,7 @@
 - jQuery第三方插件
 
 ## 运行截图
-![动图](https://github.com/mahuaide/project/raw/master/screenshots/login.png)
+![登录](https://github.com/mahuaide/project/raw/master/screenshots/login.png)
 ![首页](https://github.com/mahuaide/project/raw/master/screenshots/index.png)
 
 
@@ -21,7 +21,7 @@
 cd project
 npm install
 
-# serve with hot reload at localhost:8081
+# server with hot reload at localhost:8081
 npm run dev
 
 # build for production with minification
