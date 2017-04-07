@@ -15,6 +15,5 @@ npm run dev
 # 线上发布
 npm run build
 
-![image](https://github.com/mahuaide/project/raw/mahuaideBranch/static/img/index.png)
-![image](https://github.com/mahuaide/master/project/static/img/index.png)
+<img src="https://github.com/mahuaide/project/blob/master/static/img/index.png" width="365" height="619"/>
 
