@@ -41,17 +41,14 @@
   export default{
     data() {
       return {
-         shaftData:{
-         }
+         shaftData:[]
       }
     },
     created () {
-      const _this = this;
+      getWorkflowState().then((res) => {
+        this.shaftData = res.data.beans
 
-      getWorkflowState().then(function (res) {
-          console.log(res.data.beans);
-          _this.shaftData = res.data.beans
-        })
+      })
     },
     components:{'ai-timer':timerShaft}
   }

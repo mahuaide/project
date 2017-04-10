@@ -1,6 +1,6 @@
 <template>
   <div class="timerShaft">
-    <ul v-for="item in shaft">
+    <ul v-for="item in shaftData">
       <span v-show="item.creatTimeA">{{item.creatTimeA}}</span>
       <li>
         <span></span>
@@ -25,10 +25,8 @@
   export default{
     props:['shaftData'],
 
-    computed:{
-      shaft: function () {
-          console.log(11);
-          console.log(this.shaftData);
+    watch:{
+      shaftData: function () {
           var _this = this;
           this.shaftData.forEach(function (o) {
             o.creatTimeA = _this.$time.dateToStr(new Date(o.executeTime) , 'yyyy-M-dd');
@@ -53,41 +51,6 @@
             }
           })
           this.shaftData[0].creatTimeA = dataB;
-          return this.shaftData
-
-      }
-
-
-//      this.workflow();
-    },
-    methods: {
-      workflow() {
-        const _this = this;
-        const dataA = _this.shaftDataA;
-        dataA.forEach(function (o , p ,q) {
-          dataA[p].creatTimeA = _this.$time.dateToStr(new Date(dataA[p].executeTime) , 'yyyy-M-dd');
-          dataA[p].creatTimeB = _this.$time.dateToStr(new Date(dataA[p].executeTime) , 'hh:mm');
-          if(dataA[p].State == 1) {
-            dataA[p].State = '未完成';
-            dataA[p].classState = 'finish';
-          }else if(dataA[p].State == 2){
-            dataA[p].State = '正在进行';
-            dataA[p].classState = 'nofinish';
-          }else if(dataA[p].State == 3){
-            dataA[p].State ='完成';
-            dataA[p].classState = 'underway';
-          }
-        })
-        _this.shaftDataA = dataA;
-        var dataB = _this.shaftDataA[0].creatTimeA
-        dataA.forEach(function (o , p , q) {
-          if(dataA[p].creatTimeA == dataB){
-            delete dataA[p].creatTimeA
-          }else if(dataA[p].creatTimeA !== dataB){
-            dataB = dataA[p].creatTimeA;
-          }
-        })
-        _this.shaftDataA[0].creatTimeA = dataB;
       }
     }
   };
