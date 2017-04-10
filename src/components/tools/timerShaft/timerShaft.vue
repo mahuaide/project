@@ -21,7 +21,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-//  import {getWorkflowState} from '../../../http/api'
   export default{
     props:['shaftData'],
 
