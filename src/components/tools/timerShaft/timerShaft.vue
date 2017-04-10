@@ -53,7 +53,6 @@
     }
   };
 </script>
-
 <style lang="stylus" rel="stylesheet/stylus">
   .timerShaft
     width 95%
