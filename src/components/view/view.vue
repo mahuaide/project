@@ -36,7 +36,7 @@
 </template>
 <script type="text/ecmascript-6">
   import {getWorkflowState} from '../../http/api'
-  import timerShaft from '../view/timerShaft/timerShaft.vue'
+  import timerShaft from '../tools/timerShaft/timerShaft.vue'
 
   export default{
     data() {
