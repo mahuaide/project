@@ -23,7 +23,6 @@
 <script type="text/ecmascript-6">
   export default{
     props:['shaftData'],
-
     watch:{
       shaftData: function () {
           var _this = this;
@@ -54,7 +53,6 @@
     }
   };
 </script>
-
 <style lang="stylus" rel="stylesheet/stylus">
   .timerShaft
     width 95%
