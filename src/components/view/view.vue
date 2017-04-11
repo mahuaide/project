@@ -28,8 +28,18 @@
       </div>
     </div>
     <div class="vacancy">
-      <div id="editor-container" class="container">
-        <div id="editor-trigger"><p>请输入内容</p></div>
+      <div class="colume-wrapper" style="width:100%;">
+        <div ref="colume" style="width:100%;height: 300px;">
+
+        </div>
+      <ul class="colume-switch clearfix">
+        <li  @click="_colume(1)">开发环境</li>
+        <li  @click="_colume(2)">测试环境</li>
+        <li  @click="_colume(3)">生产环境</li>
+      </ul>
+      </div>
+      <div id="pie" style="width:100%;height: 300px;">
+
       </div>
     </div>
   </div>
@@ -37,11 +47,74 @@
 <script type="text/ecmascript-6">
   import {getWorkflowState} from '../../http/api'
   import timerShaft from '../tools/timerShaft/timerShaft.vue'
+  import echarts from 'echarts'
 
   export default{
     data() {
       return {
-         shaftData:[]
+        shaftData: [
+          {}
+        ],
+        kaifa_data: [
+          {
+            name: '成功',
+            type: 'bar',
+            stack: '开发环境',
+            data: [1, 2, 3, 4, 5, 6, 7],
+          },
+          {
+            name: '失败',
+            type: 'bar',
+            stack: '开发环境',
+            data: [1, 2, 3, 4, 5, 6, 7],
+          },
+          {
+            name: '部分成功',
+            type: 'bar',
+            stack: '开发环境',
+            data: [1, 2, 3, 4, 5, 6, 7],
+          }
+        ],
+        ceshi_data: [
+          {
+            name: '成功',
+            type: 'bar',
+            stack: '测试环境',
+            data: [10, 20, 30, 40, 50, 60, 70],
+          },
+          {
+            name: '失败',
+            type: 'bar',
+            stack: '测试环境',
+            data: [11, 21, 13, 24, 35, 46, 57],
+          },
+          {
+            name: '部分成功',
+            type: 'bar',
+            stack: '测试环境',
+            data: [61, 72, 83, 84, 95, 96, 87],
+          }
+        ],
+        shengchan_data: [
+          {
+            name: '成功',
+            type: 'bar',
+            stack: '测试环境',
+            data: [101, 202, 130, 340, 650, 760, 780],
+          },
+          {
+            name: '失败',
+            type: 'bar',
+            stack: '测试环境',
+            data: [111, 21, 13, 24, 35, 46, 57],
+          },
+          {
+            name: '部分成功',
+            type: 'bar',
+            stack: '测试环境',
+            data: [61, 72, 2, 841, 95, 96, 87],
+          }
+        ],
       }
     },
     created () {
@@ -50,7 +123,45 @@
 
       })
     },
-    components:{'ai-timer':timerShaft}
+    mounted(){
+      this.$nextTick(function () {
+        this._colume(1)
+      })
+    },
+    methods: {
+      _colume(item){
+        echarts.init(this.$refs.colume).setOption({
+          title: {
+            text: '一周构建时长',
+            x: 'center',
+            y: 'top'
+          },
+          tooltip: {
+            trigger: 'axis'
+          },
+          legend: {
+            data: ['成功', '失败', '部分成功'],
+            x: 'center',
+            y: 'bottom'
+          },
+          calculable: true,
+          xAxis: [
+            {
+              type: 'category',
+              data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+            }
+          ],
+          yAxis: [
+            {
+              type: 'value',
+              name: '单位（秒）'
+            }
+          ],
+          series: item==1?this.kaifa_data:item==2?this.ceshi_data:this.shengchan_data
+        })
+      }
+    },
+    components: {'ai-timer': timerShaft}
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
@@ -155,8 +266,19 @@
     .vacancy
       float left
       width 38%
-      height 538px
       border 1px solid #e8e8e8
       margin-left 20px
       background-color #fff
+      .colume-switch
+        margin 0 auto
+        >li
+          float left
+          width 60px
+          height 30px
+          line-height 30px
+          text-align center
+          border 1px solid #ddd
+          font-size 12px
+
+
 </style>
