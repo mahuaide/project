@@ -30,16 +30,12 @@
     <div class="vacancy">
       <div class="colume-wrapper" style="width:100%;">
         <div ref="colume" style="width:100%;height: 300px;">
-
         </div>
-      <ul class="colume-switch clearfix">
-        <li  @click="_colume(1)">开发环境</li>
-        <li  @click="_colume(2)">测试环境</li>
-        <li  @click="_colume(3)">生产环境</li>
-      </ul>
-      </div>
-      <div id="pie" style="width:100%;height: 300px;">
-
+        <ul class="colume-switch clearfix">
+          <li v-for="(item,index) in colome_switch" @click="_colume(index)" :class="{selected:item.active}">
+            {{item.name}}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -54,6 +50,11 @@
       return {
         shaftData: [
           {}
+        ],
+        colome_switch: [
+          {name: '开发环境', active: true},
+          {name: '测试环境', active: false},
+          {name: '生产环境', active: false}
         ],
         kaifa_data: [
           {
@@ -125,11 +126,14 @@
     },
     mounted(){
       this.$nextTick(function () {
-        this._colume(1)
+        this._colume(0)
       })
     },
     methods: {
-      _colume(item){
+      _colume(index){
+        this.colome_switch.forEach((item, num) => {
+          num == index ? item.active = true : item.active = false
+        })
         echarts.init(this.$refs.colume).setOption({
           title: {
             text: '一周构建时长',
@@ -157,7 +161,7 @@
               name: '单位（秒）'
             }
           ],
-          series: item==1?this.kaifa_data:item==2?this.ceshi_data:this.shengchan_data
+          series: index == 0 ? this.kaifa_data : index == 1 ? this.ceshi_data : this.shengchan_data
         })
       }
     },
@@ -271,7 +275,7 @@
       background-color #fff
       .colume-switch
         margin 0 auto
-        >li
+        > li
           float left
           width 60px
           height 30px
@@ -279,6 +283,10 @@
           text-align center
           border 1px solid #ddd
           font-size 12px
+          &:hover
+            cursor pointer
+        .selected
+          background-color #ddd
 
 
 </style>
