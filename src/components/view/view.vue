@@ -29,13 +29,19 @@
     </div>
     <div class="vacancy">
       <div class="colume-wrapper" style="width:100%;">
-        <div ref="colume" style="width:100%;height: 300px;">
+      <div ref="colume" style="width:100%;height: 300px;">
+      </div>
+      <ul class="colume-switch clearfix">
+        <li v-for="(item,index) in colome_switch" @click="_colume(index)" :class="{selected:item.active}">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+      <div class="summary">总构建次数<span>52</span>次，构建时长<span>2小时40分20</span>秒，平均时长<span>1分50秒</span></div>
+      <div class="piechart_switch" style="width:100%;">
+        <div ref="piechart" style="width: 100%; height: 300px;">
+
         </div>
-        <ul class="colume-switch clearfix">
-          <li v-for="(item,index) in colome_switch" @click="_colume(index)" :class="{selected:item.active}">
-            {{item.name}}
-          </li>
-        </ul>
       </div>
     </div>
   </div>
@@ -62,18 +68,33 @@
             type: 'bar',
             stack: '开发环境',
             data: [1, 2, 3, 4, 5, 6, 7],
-          },
-          {
-            name: '失败',
-            type: 'bar',
-            stack: '开发环境',
-            data: [1, 2, 3, 4, 5, 6, 7],
+            itemStyle: {
+              normal: {
+                color:'#0da4d3'
+              }
+            }
           },
           {
             name: '部分成功',
             type: 'bar',
             stack: '开发环境',
             data: [1, 2, 3, 4, 5, 6, 7],
+            itemStyle: {
+              normal: {
+                color:'#d4f5f6'
+              }
+            }
+          },
+          {
+            name: '失败',
+            type: 'bar',
+            stack: '开发环境',
+            data: [1, 2, 3, 4, 5, 6, 7],
+            itemStyle: {
+              normal: {
+                color:'#fb7f4a'
+              }
+            }
           }
         ],
         ceshi_data: [
@@ -82,18 +103,33 @@
             type: 'bar',
             stack: '测试环境',
             data: [10, 20, 30, 40, 50, 60, 70],
-          },
-          {
-            name: '失败',
-            type: 'bar',
-            stack: '测试环境',
-            data: [11, 21, 13, 24, 35, 46, 57],
+            itemStyle: {
+              normal: {
+                color:'#0da4d3'
+              }
+            }
           },
           {
             name: '部分成功',
             type: 'bar',
             stack: '测试环境',
             data: [61, 72, 83, 84, 95, 96, 87],
+            itemStyle: {
+              normal: {
+                color:'#d4f5f6'
+              }
+            }
+          },
+          {
+            name: '失败',
+            type: 'bar',
+            stack: '测试环境',
+            data: [11, 21, 13, 24, 35, 46, 57],
+            itemStyle: {
+              normal: {
+                color:'#fb7f4a'
+              }
+            }
           }
         ],
         shengchan_data: [
@@ -102,20 +138,40 @@
             type: 'bar',
             stack: '测试环境',
             data: [101, 202, 130, 340, 650, 760, 780],
-          },
-          {
-            name: '失败',
-            type: 'bar',
-            stack: '测试环境',
-            data: [111, 21, 13, 24, 35, 46, 57],
+            itemStyle: {
+              normal: {
+                color:'#0da4d3'
+              }
+            }
           },
           {
             name: '部分成功',
             type: 'bar',
             stack: '测试环境',
             data: [61, 72, 2, 841, 95, 96, 87],
+            itemStyle: {
+              normal: {
+                color:'#d4f5f6'
+              }
+            }
+          },
+          {
+            name: '失败',
+            type: 'bar',
+            stack: '测试环境',
+            data: [111, 21, 13, 24, 35, 46, 57],
+            itemStyle: {
+              normal: {
+                color:'#fb7f4a'
+              }
+            }
           }
         ],
+        piechart_switch:[
+          {value:335, name:'成功'},
+          {value:310, name:'部分成功'},
+          {value:234, name:'失败'}
+        ]
       }
     },
     created () {
@@ -127,6 +183,7 @@
     mounted(){
       this.$nextTick(function () {
         this._colume(0)
+        this._piechart()
       })
     },
     methods: {
@@ -163,8 +220,50 @@
           ],
           series: index == 0 ? this.kaifa_data : index == 1 ? this.ceshi_data : this.shengchan_data
         })
+      },
+      _piechart () {
+        echarts.init(this.$refs.piechart).setOption({
+          tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+          },
+          color: ['#0da4d3', '#d4f5f6', '#fb7f4a'],
+          legend: {
+            orient: 'horizontal',
+            y: 'bottom',
+            data:['成功','部分成功','失败']
+          },
+          series: [
+            {
+              name:'访问来源',
+              type:'pie',
+              radius: ['50%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data:this.piechart_switch
+            }
+          ]
+        })
       }
     },
+
     components: {'ai-timer': timerShaft}
   }
 </script>
@@ -274,10 +373,11 @@
       margin-left 20px
       background-color #fff
       .colume-switch
+        width 51%
         margin 0 auto
         > li
           float left
-          width 60px
+          width 32.3%
           height 30px
           line-height 30px
           text-align center
@@ -287,6 +387,12 @@
             cursor pointer
         .selected
           background-color #ddd
+      .summary
+        font-size 12px
+        margin-top 20px
+        text-align center
+        span
+          color: #0da4d3
 
 
 </style>
