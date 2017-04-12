@@ -16,7 +16,6 @@
         </span>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -25,34 +24,35 @@
     props:['shaftData'],
     watch:{
       shaftData: function () {
-          var _this = this;
-          this.shaftData.forEach(function (o) {
-            o.creatTimeA = _this.$time.dateToStr(new Date(o.executeTime) , 'yyyy-M-dd');
-            o.creatTimeB = _this.$time.dateToStr(new Date(o.executeTime) , 'hh:mm');
-            if(o.State == 1) {
-              o.State = '未完成';
-              o.classState = 'finish';
-            }else if(o.State == 2){
-              o.State = '正在进行';
-              o.classState = 'nofinish';
-            }else if(o.State == 3){
-              o.State ='完成';
-              o.classState = 'underway';
-            }
-          })
-          var dataB = this.shaftData[0].creatTimeA
-          this.shaftData.forEach(function (o) {
-            if(o.creatTimeA == dataB){
-              delete o.creatTimeA
-            }else if(o.creatTimeA !== dataB){
-              dataB = o.creatTimeA;
-            }
-          })
-          this.shaftData[0].creatTimeA = dataB;
+        var _this = this;
+        this.shaftData.forEach(function (o) {
+          o.creatTimeA = _this.$time.dateToStr(new Date(o.executeTime) , 'yyyy-M-dd');
+          o.creatTimeB = _this.$time.dateToStr(new Date(o.executeTime) , 'hh:mm');
+          if(o.State == 1) {
+            o.State = '未完成';
+            o.classState = 'finish';
+          }else if(o.State == 2){
+            o.State = '正在进行';
+            o.classState = 'nofinish';
+          }else if(o.State == 3){
+            o.State ='完成';
+            o.classState = 'underway';
+          }
+        })
+        var dataB = this.shaftData[0].creatTimeA
+        this.shaftData.forEach(function (o) {
+          if(o.creatTimeA == dataB){
+            delete o.creatTimeA
+          }else if(o.creatTimeA !== dataB){
+            dataB = o.creatTimeA;
+          }
+        })
+        this.shaftData[0].creatTimeA = dataB;
       }
     }
   };
 </script>
+
 <style lang="stylus" rel="stylesheet/stylus">
   .timerShaft
     width 95%
