@@ -136,7 +136,7 @@
           {
             name: '成功',
             type: 'bar',
-            stack: '测试环境',
+            stack: '生产环境',
             data: [101, 202, 130, 340, 650, 760, 780],
             itemStyle: {
               normal: {
@@ -154,6 +154,8 @@
                 color:'#d4f5f6'
               }
             }
+            stack: '生产环境',
+            data: [111, 21, 13, 24, 35, 46, 57],
           },
           {
             name: '失败',
@@ -165,6 +167,8 @@
                 color:'#fb7f4a'
               }
             }
+            stack: '生产环境',
+            data: [61, 72, 2, 841, 95, 96, 87],
           }
         ],
         piechart_switch:[
@@ -184,6 +188,7 @@
       this.$nextTick(function () {
         this._colume(0)
         this._piechart()
+        this._colume(0);
       })
     },
     methods: {
