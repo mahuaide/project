@@ -147,10 +147,8 @@
           {
             name: '部分成功',
             type: 'bar',
-<<<<<<< Temporary merge branch 1
             stack: '生产环境',
             data: [111, 21, 13, 24, 35, 46, 57],
-=======
             stack: '测试环境',
             data: [61, 72, 2, 841, 95, 96, 87],
             itemStyle: {
@@ -158,15 +156,12 @@
                 color:'#d4f5f6'
               }
             }
->>>>>>> Temporary merge branch 2
           },
           {
             name: '失败',
             type: 'bar',
-<<<<<<< Temporary merge branch 1
             stack: '生产环境',
             data: [61, 72, 2, 841, 95, 96, 87],
-=======
             stack: '测试环境',
             data: [111, 21, 13, 24, 35, 46, 57],
             itemStyle: {
@@ -174,7 +169,6 @@
                 color:'#fb7f4a'
               }
             }
->>>>>>> Temporary merge branch 2
           }
         ],
         piechart_switch:[
@@ -192,12 +186,9 @@
     },
     mounted(){
       this.$nextTick(function () {
-<<<<<<< Temporary merge branch 1
         this._colume(0);
-=======
         this._colume(0)
         this._piechart()
->>>>>>> Temporary merge branch 2
       })
     },
     methods: {
