@@ -38,12 +38,19 @@
       <div class="percent-show"><span>0</span>%</div>
       <div class="progress-in"></div>
     </div>
+    <com1></com1>
+    <com2></com2>
   </div>
 </template>
 <script type="text/ecmascript-6">
   import 'jcrop'
   import '../../common/js/jquery.myProgress.js'
+  import com1 from './com_1.vue'
+  import com2 from './com_2.vue'
   export default{
+    components: {
+        com1, com2
+    },
     mounted(){
       var boundx = 0;
       var boundy = 0;
@@ -122,6 +129,7 @@
           }
         };
       }
+
       $("#div1").myProgress({speed: 1000, percent: 30, width: "100px", height: "10px"});
     }
   }
