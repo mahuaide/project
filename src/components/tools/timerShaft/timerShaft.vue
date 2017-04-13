@@ -1,49 +1,39 @@
 <template>
   <div class="timerShaft">
     <ul v-for="item in shaftData">
-      <span v-show="item.creatTimeA">{{item.creatTimeA}}</span>
+      <span v-show="item.creatTimeA">{{item.executeTime|timeFormate("YYYY-DD-MM")}}</span>
       <li>
         <span></span>
         <span v-show="item.creatTimeA"></span>
-        <span>{{item.creatTimeB}}</span>
+        <span>{{item.executeTime|timeFormate("HH:mm")}}</span>
         <span>
-          <li><img :src="item.userUri"></li>
-          <li>
-            <span>{{item.userName}}</span>
-            <span>执行&nbsp;<span>{{item.workflowDemo}}</span>&nbsp;的&nbsp;<span>{{item.workflow}}</span>&nbsp;工作流</span>
-          </li>
-          <li :class="item.classState">{{item.State}}</li>
-        </span>
+      <li><img :src="item.userUri"></li>
+      <li>
+        <span>{{item.userName}}</span>
+        <span>执行&nbsp;<span>{{item.workflowDemo}}</span>&nbsp;的&nbsp;<span>{{item.workflow}}</span>&nbsp;工作流</span>
+      </li>
+      <li v-bind:class="[item.State==1?'nofinish':'finish',item.State==3?'underway':'']">{{item.State|finishText}}</li>
+      </span>
       </li>
     </ul>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import moment from 'moment'
   export default{
-    props:['shaftData'],
-    watch:{
+    props: ['shaftData'],
+    watch: {
       shaftData: function () {
-        var _this = this;
         this.shaftData.forEach(function (o) {
-          o.creatTimeA = _this.$time.dateToStr(new Date(o.executeTime) , 'yyyy-M-dd');
-          o.creatTimeB = _this.$time.dateToStr(new Date(o.executeTime) , 'hh:mm');
-          if(o.State == 1) {
-            o.State = '未完成';
-            o.classState = 'finish';
-          }else if(o.State == 2){
-            o.State = '正在进行';
-            o.classState = 'nofinish';
-          }else if(o.State == 3){
-            o.State ='完成';
-            o.classState = 'underway';
-          }
+          o.creatTimeA = moment(new Date(o.executeTime)).format("YYYY-DD-MM")
         })
+
         var dataB = this.shaftData[0].creatTimeA
         this.shaftData.forEach(function (o) {
-          if(o.creatTimeA == dataB){
+          if (o.creatTimeA == dataB) {
             delete o.creatTimeA
-          }else if(o.creatTimeA !== dataB){
+          } else if (o.creatTimeA !== dataB) {
             dataB = o.creatTimeA;
           }
         })
@@ -65,7 +55,7 @@
         color #303030
         margin-bottom 19px
         margin-top 19px
-      li:last-child
+      li: last-child
       > li
         position relative
         height 74px

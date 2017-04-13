@@ -147,28 +147,28 @@
           {
             name: '部分成功',
             type: 'bar',
+            stack: '生产环境',
+            data: [111, 21, 13, 24, 35, 46, 57],
             stack: '测试环境',
             data: [61, 72, 2, 841, 95, 96, 87],
             itemStyle: {
               normal: {
                 color:'#d4f5f6'
               }
-            },
-            stack: '生产环境',
-            data: [111, 21, 13, 24, 35, 46, 57],
+            }
           },
           {
             name: '失败',
             type: 'bar',
+            stack: '生产环境',
+            data: [61, 72, 2, 841, 95, 96, 87],
             stack: '测试环境',
             data: [111, 21, 13, 24, 35, 46, 57],
             itemStyle: {
               normal: {
                 color:'#fb7f4a'
               }
-            },
-            stack: '生产环境',
-            data: [61, 72, 2, 841, 95, 96, 87],
+            }
           }
         ],
         piechart_switch:[
@@ -186,9 +186,9 @@
     },
     mounted(){
       this.$nextTick(function () {
+        this._colume(0);
         this._colume(0)
         this._piechart()
-        this._colume(0);
       })
     },
     methods: {

@@ -13,9 +13,7 @@ import created from '../components/project/projectSub/created.vue'
 import joined from '../components/project/projectSub/joined.vue'
 import archive from '../components/project/projectSub/archive.vue'
 import login from '../components/login/login.vue'
-import time from '../common/js/time'
 
-Vue.use(time)
 Vue.use(Router)
 if (window.localStorage.getItem('token')) {
   store.commit('login', window.localStorage.getItem('token'))
