@@ -3,24 +3,20 @@
  */
 import Vue from 'vue';
 import Vuex from 'vuex';
-import * as types from './type'
+import * as getters from './getters'
+import * as actions from './actions'
+import mutations from './mutations'
 
 Vue.use(Vuex);
-
+const state={
+  user: {},
+  token: null,
+  title: '',
+  counter:0
+}
 export default new Vuex.Store({
-  state: {
-    user: {},
-    token: null,
-    title: ''
-  },
-  mutations: {
-    [types.LOGIN]: (state,data) => {
-      localStorage.token = data
-      state.token = data;
-    },
-    [types.LOGOUT]: (state) => {
-      localStorage.removeItem('token');
-      state.token = null
-    }
-  }
+  state,
+  getters,
+  actions,
+  mutations
 })
