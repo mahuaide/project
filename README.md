@@ -11,7 +11,7 @@
 
 ## 运行截图
 ![登录](https://github.com/mahuaide/project/raw/master/screenshots/login.png)
-![首页](https://github.com/mahuaide/project/raw/master/screenshots/home.png)
+![首页](https://github.com/mahuaide/project/raw/master/screenshots/home413.png)
 
 
 ## 安装运行
