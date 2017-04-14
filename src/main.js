@@ -8,10 +8,10 @@ import store from './store/store'
 import axios from './http/http'
 import ElementUI from 'element-ui'
 import '../static/css/reset.css'
-import './common/css/common.styl'
 import './common/css/font.css'
 import '../theme/index.css'  //element-UI自定义样式
-import 'nprogress/nprogress.css' //进度条
+import 'nprogress/nprogress.css' //进度条\
+import './common/css/common.styl'
 import filters from './filters' //自定义过滤器，挂在到Vue全局
 
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]))
