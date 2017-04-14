@@ -54,6 +54,7 @@ npm run build
 │  │      └─timerShaft
 │  ├─http			--前后端交互http.js是公共的axios设置，api.js是暴露给前端的方法，path.js后端服务路径
 │  ├─mock			--mock数据
+│  ├─fliters		--全局过滤器
 │  ├─router			--路由
 │  └─store			--前端状态管理
 ├─static			--静态的css，img
