@@ -7,7 +7,8 @@ import * as types from '../store/type.js'
 import router from '../router/index.js'
 import nprogress from 'nprogress'
 nprogress.configure({
-  speed:500
+  speed:500,
+  showSpinner: false,
 })
 // axios 公共配置
 axios.defaults.timeout = 5000;
