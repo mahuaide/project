@@ -11,7 +11,9 @@ import '../static/css/reset.css'
 import './common/css/common.styl'
 import './common/css/font.css'
 import '../theme/index.css'  //element-UI自定义样式
+import 'nprogress/nprogress.css' //进度条
 import filters from './filters' //自定义过滤器，挂在到Vue全局
+
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]))
 Vue.prototype.$http = axios
 Vue.use(ElementUI)

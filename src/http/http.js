@@ -5,7 +5,10 @@ import axios from 'axios'
 import store from '../store/store.js'
 import * as types from '../store/type.js'
 import router from '../router/index.js'
-
+import nprogress from 'nprogress'
+nprogress.configure({
+  speed:500
+})
 // axios 公共配置
 axios.defaults.timeout = 5000;
 axios.defaults.baseURL = 'http://10.19.18.45:8080/cmp';
@@ -15,6 +18,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
+    nprogress.start();
     if (store.state.token) {
       axios.defaults.headers.common['Authorization'] = 'Auth'+store.state.token;
       // console.log(axios.defaults.headers.common)
@@ -28,6 +32,7 @@ axios.interceptors.request.use(
 // http response 拦截器
 axios.interceptors.response.use(
   response => {
+    nprogress.done();
     return response;
   },
   error => {
