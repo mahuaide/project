@@ -10,16 +10,17 @@
   import router from './router'
   export default {
     mounted(){
-      router.beforeEach((to, from, next) => {
-        if (from.path === '/login' && this.$store.state.token) {
-          this.$message({
-            message: '欢迎回来！',
-            type: 'success',
-            duration:'1500'
-          })
+    },
+    watch:{
+        '$route'(to,from){
+          if (from.path === '/login' && this.$store.state.token) {
+            this.$message({
+              message: '欢迎回来！',
+              type: 'success',
+              duration:'1500'
+            })
+          }
         }
-        next()
-      })
     }
   }
 </script>
