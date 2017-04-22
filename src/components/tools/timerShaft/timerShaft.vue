@@ -19,6 +19,7 @@
   </div>
 </template>
 
+
 <script type="text/ecmascript-6">
   import moment from 'moment'
   export default{
