@@ -1,0 +1,20 @@
+{
+  "code": "0",
+  "message": null,
+  "bean": {
+    "Java": "Struts,Spring,Ibtias,python",
+    "Javascipt": "jQuery,prototype,Dojo",
+    "数据库": "DB2,mogodb,mysql,orcale",
+    "前端开发": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发1": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发2": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发3": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发4": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发5": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发6": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发7": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发8": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less",
+    "前端开发9": "HTML5,Javascript,CSS3,jQuery,bootstrap,angularJs,ExtJs,jQuery Mobile,Less"
+  },
+  "beans": []
+}

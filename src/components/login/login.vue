@@ -15,7 +15,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-  import {login} from '../../http/api'
+  import {login} from '../../http/api';
   const staticImgLoginFile = 5
   export default{
     data(){
@@ -38,9 +38,10 @@
             login(this.form).then(function (res) {
               _this.$store.commit('login', res.data.respCode);
               let redirect = decodeURIComponent(_this.$route.query.redirect || '/');
-              _this.$router.push({
-                path: redirect
-              })
+//              _this.$router.replace({
+//                path: redirect
+//              })
+              window.location.href = redirect;
             })
           } else {
             return false;

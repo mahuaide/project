@@ -8,6 +8,7 @@
 - css预编译：stylus
 - Element-UI
 - jQuery第三方插件
+- nodejs 服务端文件服务器
 
 ## 运行截图
 ![登录](https://github.com/mahuaide/project/raw/master/screenshots/login.png)
@@ -23,6 +24,9 @@ npm install
 
 # server with hot reload at localhost:8080
 npm run dev
+
+# fileServer with hot reload at localhost:9001
+node fileServer
 
 # build for production with minification
 npm run build
