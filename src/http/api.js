@@ -13,6 +13,7 @@ export const logout = function(){return axios.get(Path.logout)}
 
 export const getLoginUser = function() {return axios.get(Path.getLoginUser)};
 export const getWorkflowState = function() {return axios.get(Path.getWorkflowState)};
+export const test_http = function() {return axios.get(Path.test_http)};
 
 // export const queryPreCodePage = params => {return axios.get(`${base}/data/queryPreCodePageInit.action`, {params: params})};
 //

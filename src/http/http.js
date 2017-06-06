@@ -12,7 +12,8 @@ nprogress.configure({
 })
 // axios 公共配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://10.19.18.45:8080/cmp';
+// axios.defaults.baseURL = 'http://10.19.18.45:8080/cmp';
+axios.defaults.baseURL = 'http://localhost:9001';
 axios.defaults.withCredentials=true;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -21,8 +22,7 @@ axios.interceptors.request.use(
   config => {
     nprogress.start();
     if (store.state.token) {
-      axios.defaults.headers.common['Authorization'] = 'Auth'+store.state.token;
-      // console.log(axios.defaults.headers.common)
+      config.headers.Authorization = 'Auth'+store.state.token;
     }
     return config;
   },
@@ -37,6 +37,7 @@ axios.interceptors.response.use(
     return response;
   },
   error => {
+    nprogress.done();
     if (error.response) {
       switch (error.response.status) {
         case 401:
@@ -48,6 +49,6 @@ axios.interceptors.response.use(
           })
       }
     }
-    return Promise.reject(error.response.data)
+    return Promise.reject(error)
   });
 export default axios;
