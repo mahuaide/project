@@ -10,11 +10,11 @@ const IP = "localhost";
 
 http.createServer((req, res) => {
   //  /user/login.action  --> user_login.json
-  let pathName = url.parse(req.url).pathname;
-  let fileName = pathName.slice(1).replace(path.extname(pathName), '.json').replace(/\//g, '_');
+  let pathName = path.normalize(url.parse(req.url).pathname);
+  let fileName = pathName.replace(path.extname(pathName), '.json').replace(new RegExp('\\'+path.sep,'g'), '_').slice(1);
   fs.readFile(path.join(__dirname, `./src/mock/json/${fileName}`), 'utf-8', (err, data) => {
     if (err) {
-      responseData(404, "");
+      responseData(404, `未配置json文件: ${fileName}`);
     } else {
       if (pathName && req.method != "OPTIONS" && pathName != '/user/login.action' && pathName != '/logout.action') {
         var auth = req.headers['authorization'];
