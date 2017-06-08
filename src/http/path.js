@@ -3,6 +3,6 @@ export default {
   logout:'/logout.action',
   getLoginUser: '/user/getLoginUser.action',
   getWorkflowState:'/workflow/dynamicList.do',
-  test_http:'/test/testHttp.action'
+  test_http:'/test/testHttp/testing.action'
 }
 
