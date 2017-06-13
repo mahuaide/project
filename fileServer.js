@@ -31,7 +31,7 @@ http.createServer((req, res) => {
 
   function responseData(status, data) {
     res.setHeader('Content-Type', 'text/json;charset=UTF-8');
-    res.setHeader('Access-Control-Allow-Origin', req.headers['origin']);
+    res.setHeader('Access-Control-Allow-Origin', req.headers['origin'] ||  req.headers['referer']);
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
