@@ -16,7 +16,7 @@ http.createServer((req, res) => {
     if (err) {
       responseData(404, `未配置json文件: ${fileName}`);
     } else {
-      if (pathName && req.method != "OPTIONS" && pathName != '/user/login.action' && pathName != '/logout.action') {
+      if (pathName && req.method != "OPTIONS" && pathName != '\\user\\login.action' && pathName != '\\logout.action') {
         var auth = req.headers['authorization'];
         if (auth != 'Auth0000') {
           responseData(401, "token error");
@@ -38,7 +38,7 @@ http.createServer((req, res) => {
     setTimeout(() => {
       res.writeHead(status, {});
       res.end(data);
-    }, req.method == "OPTIONS" ? 0 : 1000)
+    }, req.method == "OPTIONS" ? 0 : 1)
   }
 }).listen(PORT, IP, (err) => {
   if (err) {
