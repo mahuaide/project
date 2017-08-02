@@ -5,15 +5,20 @@ import axios from './http.js';
 import qs from 'qs'
 import Path from './path'
 
-export const login = params => {
-  return axios.post(Path.login, qs.stringify(params));
-};
+// export const login = params => {
+//   return axios.get(Path.login, qs.stringify(params));
+// };
 
 export const logout = function(){return axios.get(Path.logout)}
 
 export const getLoginUser = function() {return axios.get(Path.getLoginUser)};
 export const getWorkflowState = function() {return axios.get(Path.getWorkflowState)};
 export const test_http = function() {return axios.get(Path.test_http)};
+export const uploadUrl = axios.defaults.baseURL+Path.testUploadFiles;
+
+
+export const login = params => {return axios.post(Path.login, qs.stringify(params))};
+
 
 // export const queryPreCodePage = params => {return axios.get(`${base}/data/queryPreCodePageInit.action`, {params: params})};
 //

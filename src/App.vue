@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <keep-alive>
       <router-view></router-view>
-    </keep-alive>
   </div>
 </template>
 
@@ -17,7 +15,7 @@
             this.$message({
               message: '欢迎回来！',
               type: 'success',
-              duration:'1500'
+              duration:'2000'
             })
           }
         }

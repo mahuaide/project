@@ -3,16 +3,15 @@
  * Created by Administrator on 2017/4/13.
  */
 import * as types from './type'
+import {lsWrite,lsRead} from '../common/js/ls'
 export default {
   [types.LOGIN]: (state,data) => {
-    localStorage.token = data
+    lsWrite('token',data)
     state.token = data;
-    console.log('login')
   },
   [types.LOGOUT]: (state) => {
-    localStorage.removeItem('token');
     state.token = null
-    console.log('logout')
+    lsWrite('token',null);
   },
   [types.ADD]:(state)=>{
     state.counter!=10 && state.counter++;

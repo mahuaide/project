@@ -22,10 +22,10 @@
 cd project
 npm install
 
-# server with hot reload at localhost:8080
+# server with hot reload at localhost:8081
 npm run dev
 
-# fileServer with hot reload at localhost:9001
+# fileServer with hot reload at localhost:8080
 node fileServer
 
 # build for production with minification

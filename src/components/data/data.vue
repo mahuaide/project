@@ -1,6 +1,9 @@
 <template>
   <div class="wrapper">
-    {{json}}
+    {{obj.json}}
+    <br/>
+    <div ref="div">{{obj.text}}</div>
+    <button @click="haha">按钮</button>
   </div>
 </template>
 <script type="text/ecmascript-6">
@@ -8,18 +11,27 @@
   export default{
     data(){
       return {
-        json: ""
+        obj: {
+          json: ""
+        }
       }
     },
     created(){
-        console.log("created")
     },
     mounted(){
-      this.$nextTick(()=>{
-        test_http().then((res)=>{
-          this.json = res.data;
-        })
+      test_http().then((res) => {
+        this.obj.json = res.data;
       })
+      this.$set(this.obj, 'text', '1');
+      console.log("实际DOM" + this.$refs.div.innerHTML);
+      this.$nextTick(() => {
+        console.log("异步更新后DOM" + this.$refs.div.innerHTML);
+      })
+    },
+    methods: {
+      haha(){
+        this.obj.text = 1111
+      }
     }
   }
 </script>

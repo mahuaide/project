@@ -9,7 +9,7 @@ import axios from './http/http'
 import ElementUI from 'element-ui'
 import '../static/css/reset.css'
 import './common/css/font.css'
-import '../theme/index.css'  //element-UI自定义样式
+import 'element-ui/lib/theme-default/index.css'
 import 'nprogress/nprogress.css' //进度条
 import './common/css/common.styl'
 import filters from './filters' //自定义过滤器，挂在到Vue全局
@@ -20,6 +20,9 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+router.beforeEach((to,from,next)=>{
+  next();
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

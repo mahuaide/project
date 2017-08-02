@@ -3,11 +3,11 @@
     <div class="login-form">
       <h2>用户登录</h2>
       <el-form :rules="rules" ref="form" :model="form">
-        <el-form-item prop="userName">
-          <el-input type="text" v-model="form.userName" placeholder="用户名" size="large"></el-input>
+        <el-form-item prop="username">
+          <el-input type="text" v-model="form.username" placeholder="用户名" size="large"></el-input>
         </el-form-item>
-        <el-form-item prop="userPwd">
-          <el-input type="password" v-model="form.userPwd" placeholder="密码" size="large"></el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="form.password" placeholder="密码" size="large"></el-input>
         </el-form-item>
         <button @click.prevent="login">登录</button>
       </el-form>
@@ -21,12 +21,12 @@
     data(){
       return {
         form: {
-          userName: "",
-          userPwd: ""
+          username: "",
+          password: ""
         },
         rules: {
-          userName: [{required: true, message: '请输入用户名', trigger: 'blur'}],
-          userPwd: [{required: true, message: '请输入密码', trigger: 'blur'}]
+          username: [{required: true, message: '请输入用户名', trigger: 'blur'}],
+          password: [{required: true, message: '请输入密码', trigger: 'blur'}]
         },
       }
     },
@@ -36,12 +36,12 @@
         this.$refs.form.validate((valid) => {
           if (valid) {
             login(this.form).then(function (res) {
-              _this.$store.commit('login', res.data.respCode);
-              let redirect = decodeURIComponent(_this.$route.query.redirect || '/');
-//              _this.$router.replace({
-//                path: redirect
-//              })
-              window.location.href = redirect;
+              _this.$store.commit('login', `${res.data.content.userId}_${res.data.content.token}`);
+              let redirect = decodeURIComponent(_this.$route.query.redirect || '/home/view');
+              _this.$router.replace({
+                path: redirect
+              })
+              //window.location.href = redirect;
             })
           } else {
             return false;

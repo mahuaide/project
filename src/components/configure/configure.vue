@@ -40,16 +40,95 @@
     </div>
     <com1></com1>
     <com2></com2>
+    <el-upload
+      class="upload-demo"
+      :headers="header"
+      :action="uploadUrl"
+      :multiple="multiple"
+      :with-credentials="credentials"
+      :data="uploadParams"
+      :on-success="success" :on-error="error" :before-upload="beforeUpload">
+      <el-button size="" type="primary" icon="upload">上传文件</el-button>
+      <div slot="tip" class="upload-tip">只能上传Microsoft Office Excel文件，大小不可超过10M；多次上传以最后一次为准</div>
+    </el-upload>
+    <button @click="change">我得去別的頁面看看</button>
+    <ul>
+      <li v-for="item in array" :key="item">{{item}}</li>
+    </ul>
   </div>
+
 </template>
 <script type="text/ecmascript-6">
   import 'jcrop'
   import '../../common/js/jquery.myProgress.js'
   import com1 from './com_1.vue'
   import com2 from './com_2.vue'
+  import{uploadUrl} from '../../http/api'
+  import store from '../../store/store.js'
+  import * as types from '../../store/type.js'
+  import router from '../../router/index.js'
   export default{
     components: {
-        com1, com2
+      com1, com2
+    },
+    beforeRouteEnter (to, from, next) {
+      console.log(to.path);
+      console.log(from.path)
+      next(vm => {
+        console.log(vm.header.authorization)
+      })
+    },
+    beforeRouteLeave (to, from, next) {
+      if (this.go) {
+        next()
+      } else {
+        alert("別走啊 大爺")
+        next(false)
+      }
+    },
+    data(){
+      return {
+        go: false,
+        array:[1,2,3,4,5,6],
+        header: {
+          authorization: store.state.token
+        },
+        credentials: true,
+        multiple: true,
+        uploadUrl: uploadUrl,
+        uploadFile: "uploadFile",
+        uploadParams: {
+          author: 'mahd'
+        }
+      }
+    },
+    methods: {
+      change(){
+        this.go = true
+        this.array[2] = "12"
+        this.array.splice(2,1,'12')
+        this.array.reverse()
+      },
+      success(response, file, fileList){
+        console.log(response)
+      },
+      error(err, file, fileList){
+        var errObj = JSON.parse(JSON.stringify(err));
+        if (errObj.status == 401) {
+          store.commit(types.LOGOUT);
+          router.replace({
+            path: '/login',
+            query: {redirect: router.currentRoute.fullPath}
+          })
+        } else {
+          this.$message({
+            title: '错误',
+            message: "文件上传失败",
+            type: 'error',
+          });
+        }
+      },
+      beforeUpload(file){},
     },
     mounted(){
       var boundx = 0;
