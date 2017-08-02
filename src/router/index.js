@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import store from '../store/store'
 import Router from 'vue-router'
+import {lsWrite,lsRead} from '../common/js/ls'
 import version from '../components/version/version.vue'
 import home from '../components/home/home.vue'
 import configure from '../components/configure/configure.vue'
@@ -15,13 +16,13 @@ import archive from '../components/project/projectSub/archive.vue'
 import login from '../components/login/login.vue'
 
 Vue.use(Router)
-if (window.localStorage.getItem('token')) {
-  store.commit('login', window.localStorage.getItem('token'))
+if (lsRead('token')) {
+  store.commit('login', lsRead('token'))
 }
 
 export default new Router({
   linkActiveClass: "active",
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/login',
@@ -78,7 +79,7 @@ export default new Router({
     },
     {
       path: "/",
-      redirect: "/home/view"
+      redirect: {path: '/login'}
     }
   ]
 })

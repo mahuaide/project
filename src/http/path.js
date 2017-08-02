@@ -1,8 +1,9 @@
 export default {
-  login: '/user/login.action',
-  logout:'/logout.action',
+  login: '/login',
+  logout:'/logout',
   getLoginUser: '/user/getLoginUser.action',
   getWorkflowState:'/workflow/dynamicList.do',
-  test_http:'/test/testHttp/testing.action'
+  test_http:'/resources ',
+  testUploadFiles:'/testUploadFiles'
 }
 
