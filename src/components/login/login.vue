@@ -56,8 +56,6 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .login
-    display: flex;
-    align-items: center;
     position: absolute;
     top: 0
     left: 0
@@ -65,6 +63,7 @@
     height 100%
     .login-form
       margin 0 auto
+      margin-top 10%
       vertical-align middle
       padding 30px 40px
       width 400px
